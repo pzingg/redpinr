@@ -18,7 +18,7 @@ class MeasurementsController < ApplicationController
     @measurement = Measurement.new(measurement_params)
 
     if @measurement.save
-      render json: @measurement, status: :created, location: @measurement
+      render json: @measurement, status: :created, location: @measurement, template: 'measurements/show'
     else
       render json: @measurement.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class MeasurementsController < ApplicationController
   # PATCH/PUT /measurements/1
   def update
     if @measurement.update(measurement_params)
-      render json: @measurement
+      render json: @measurement, template: 'measurements/show'
     else
       render json: @measurement.errors, status: :unprocessable_entity
     end

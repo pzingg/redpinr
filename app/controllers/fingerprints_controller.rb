@@ -18,7 +18,7 @@ class FingerprintsController < ApplicationController
     @fingerprint = Fingerprint.new(fingerprint_params)
 
     if @fingerprint.save
-      render json: @fingerprint, status: :created, location: @fingerprint
+      render json: @fingerprint, status: :created, location: @fingerprint, template: 'fingerprints/show'
     else
       render json: @fingerprint.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class FingerprintsController < ApplicationController
   # PATCH/PUT /fingerprints/1
   def update
     if @fingerprint.update(fingerprint_params)
-      render json: @fingerprint
+      render json: @fingerprint, template: 'fingerprints/show'
     else
       render json: @fingerprint.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class FingerprintsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def fingerprint_params
-      params.fetch(:fingerprint, {})
+      params.require(:fingerprint).permit(:measurement_id, :location_id)
     end
 end

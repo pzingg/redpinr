@@ -18,7 +18,7 @@ class MapsController < ApplicationController
     @map = Map.new(map_params)
 
     if @map.save
-      render json: @map, status: :created, location: @map
+      render json: @map, status: :created, location: @map, template: 'maps/show'
     else
       render json: @map.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class MapsController < ApplicationController
   # PATCH/PUT /maps/1
   def update
     if @map.update(map_params)
-      render json: @map
+      render json: @map, template: 'maps/show'
     else
       render json: @map.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class MapsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def map_params
-      params.fetch(:map, {})
+      params.require(:map).permit(:name, :url)
     end
 end

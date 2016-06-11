@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160610155945) do
     t.string   "name"
     t.string   "bssid_base"
     t.string   "bssid_top"
-    t.string   "school"
+    t.string   "building"
     t.string   "room"
     t.datetime "created_at"
     t.datetime "updated_at"

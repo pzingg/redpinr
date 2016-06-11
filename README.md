@@ -23,6 +23,8 @@ database.
 
 ## Testing with curl
 
+### Creating Measurements and Readings
+
 This is what the Particle webhook sends:
 
     curl -i -X POST -H "Content-Type: application/x-www-form-urlencoded" -d \
@@ -32,3 +34,21 @@ This is what the Particle webhook sends:
 Then check results via api:
 
     curl -i -X GET http://localhost:3000/api/v1/measurements
+
+### Uploading a Map
+
+    curl -i -X POST -H "Content-Type: application/json" -d \
+    '{"map":{"name":"Bacich Room 3","url":"http://www.hellenicaworld.com/Italy/Literature/SRussellForbes/en/images/i-057l.jpg"}}' \
+    http://localhost:3000/api/v1/maps
+
+### Creating a Location
+
+    curl -i -X POST -H "Content-Type: application/json" -d \
+    '{"location":{"name":"Temple of Saturn","map_id":1,"map_x":300,"map_y":600,"accuracy":0}}' \
+    http://localhost:3000/api/v1/locations
+
+### Making a Fingerprint
+
+    curl -i -X POST -H "Content-Type: application/json" -d \
+    '{"fingerprint":{"measurement_id":1,"location_id":3}}' \
+    http://localhost:3000/api/v1/fingerprints

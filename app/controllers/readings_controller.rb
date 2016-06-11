@@ -19,7 +19,7 @@ class ReadingsController < ApplicationController
     @reading = Reading.new(reading_params)
 
     if @reading.save
-      render json: @reading, status: :created, location: @reading
+      render json: @reading, status: :created, location: @reading, template: 'readings/show'
     else
       render json: @reading.errors, status: :unprocessable_entity
     end
@@ -57,7 +57,7 @@ class ReadingsController < ApplicationController
   # PATCH/PUT /readings/1
   def update
     if @reading.update(reading_params)
-      render json: @reading
+      render json: @reading, template: 'measurements/show'
     else
       render json: @reading.errors, status: :unprocessable_entity
     end

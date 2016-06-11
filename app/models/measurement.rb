@@ -14,6 +14,7 @@ class Measurement < ApplicationRecord
   
   has_one :fingerprint
   has_many :readings, -> { order(:rssi) }
+  validates :tag, presence: true, uniqueness: true
 
   def access_points
     results = [ ]

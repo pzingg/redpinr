@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 AccessPoint.import_from_aerohive(File.join(Rails.root, 'db', 'aerohive.csv'))
+location = Location.default

@@ -5,7 +5,7 @@ class CreateAccessPoints < ActiveRecord::Migration
       t.string :name
       t.string :bssid_base
       t.string :bssid_top
-      t.string :school
+      t.string :building
       t.string :room
 
       t.timestamps

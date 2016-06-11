@@ -29,12 +29,12 @@ class AccessPoint < ApplicationRecord
         # node_id for Kent-2 is '08EA447FCAC0'
         # ksd-student is '08:ea:44:7f:ca:d4'
         # ksd-guest is ' 08:ea:44:7f:ca:d5'
-        school, room = row[:location].split(/[-_]+/, 2)
+        building, room = row[:location].split(/[-_]+/, 2)
         room.gsub!(/[-_]+/, ' ')
         name = row[:host_name]
         location = Location.default
         location.access_points << AccessPoint.new(name: name, 
-          bssid_base: bssid_base, bssid_top: bssid_top, school: school, room: room)
+          bssid_base: bssid_base, bssid_top: bssid_top, building: building, room: room)
       end
     end
 

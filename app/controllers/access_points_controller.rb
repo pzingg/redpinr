@@ -18,7 +18,7 @@ class AccessPointsController < ApplicationController
     @access_point = AccessPoint.new(access_point_params)
 
     if @access_point.save
-      render json: @access_point, status: :created, location: @access_point
+      render json: @access_point, status: :created, location: @access_point, template: 'access_points/show'
     else
       render json: @access_point.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class AccessPointsController < ApplicationController
   # PATCH/PUT /access_points/1
   def update
     if @access_point.update(access_point_params)
-      render json: @access_point
+      render json: @access_point, template: 'access_points/show'
     else
       render json: @access_point.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class AccessPointsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def access_point_params
-      params.fetch(:access_point, {})
+      params.require(:access_point).permit(:location_id, :name, :bssid_base, :bssid_top, :building, :room)
     end
 end

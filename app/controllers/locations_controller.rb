@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
 
     if @location.save
-      render json: @location, status: :created, location: @location
+      render json: @location, status: :created, location: @location, template: 'locations/show'
     else
       render json: @location.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   def update
     if @location.update(location_params)
-      render json: @location
+      render json: @location, template: 'locations/show'
     else
       render json: @location.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class LocationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def location_params
-      params.fetch(:location, {})
+      params.require(:location).permit(:map_id, :name, :map_x, :map_y, :accuracy)
     end
 end
