@@ -16,7 +16,6 @@ class MapsController < ApplicationController
   # POST /maps
   def create
     @map = Map.new(map_params)
-
     if @map.save
       render json: @map, status: :created, location: @map, template: 'maps/show'
     else
@@ -46,6 +45,6 @@ class MapsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def map_params
-      params.require(:map).permit(:name, :url)
+      params.require(:map).permit(:name, :level, :image_file, :world_file, :url, :crs, :zone, :scale_x, :skew_y, :skew_x, :scale_y, :top_left_x, :top_left_y)
     end
 end

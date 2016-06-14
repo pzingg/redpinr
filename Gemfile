@@ -41,3 +41,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # SVM analyzer
 gem 'rb-libsvm', require: 'libsvm'
+
+# Determine map image dimensions
+gem 'fastimage'

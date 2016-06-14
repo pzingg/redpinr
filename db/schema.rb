@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610155945) do
+ActiveRecord::Schema.define(version: 20160611180720) do
 
   create_table "access_points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "location_id"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 20160610155945) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "level"
+    t.string   "crs"
+    t.string   "zone"
+    t.float    "scale_x",    limit: 24
+    t.float    "skew_y",     limit: 24
+    t.float    "skew_x",     limit: 24
+    t.float    "scale_y",    limit: 24
+    t.float    "top_left_x", limit: 24
+    t.float    "top_left_y", limit: 24
   end
 
   create_table "measurements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

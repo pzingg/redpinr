@@ -1,7 +1,7 @@
 json.extract! @fingerprint, :id, :created_at
 json.href fingerprint_url(@fingerprint, format: :json)
 json.map do
-  json.extract! @fingerprint.location.map, :id, :name, :url
+  json.extract! @fingerprint.location.map, :id, :name, :level, :url
   json.href map_url(@fingerprint.location.map, format: :json)
 end
 json.location do
