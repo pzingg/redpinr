@@ -1,0 +1,1 @@
+../../../api/db/migrate/20160610155945_create_fingerprints.rb

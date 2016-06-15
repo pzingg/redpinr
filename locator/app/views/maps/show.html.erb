@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<h1><%= @map.name %></h1>
+<% if @map.valid_overlay? %>
+<div id="map" style="height: 600px;"></div>
+<script src="<%= map_path(@map, format: :js) %>"></script>
+<% else %>
+<p>No image for this map</p>
+<% end %>
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>

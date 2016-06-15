@@ -1,0 +1,15 @@
+<% if @map.valid_overlay? %>
+// Map: <%= @map.name %>
+// Create map using leaflet, Bing Maps tile layer and georeferenced image overlay
+
+var map = L.map('map');
+var tileLayer = new L.BingLayer("<%= Rails.application.secrets.bing_maps_key %>", {type: "Aerial"});
+var imageOverlay = new Overlay(<%=raw @map.overlay_string %>);
+
+map.setView(imageOverlay.center, 18);
+imageOverlay.addToMap(L, map);
+tileLayer.addTo(map);
+<% else %>
+// Map: <%= @map.name %>
+// No overlay (missing url, etc)
+<% end %>

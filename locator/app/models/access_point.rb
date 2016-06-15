@@ -1,0 +1,1 @@
+../../../api/app/models/access_point.rb
