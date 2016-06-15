@@ -8,8 +8,8 @@ class AddWorldFileParams < ActiveRecord::Migration[5.0]
       t.float :skew_y
       t.float :skew_x
       t.float :scale_y
-      t.float :top_left_x
-      t.float :top_left_y
+      t.decimal :top_left_x, precision: 64, scale: 12  
+      t.decimal :top_left_y, precision: 64, scale: 12  
     end
   end
 end

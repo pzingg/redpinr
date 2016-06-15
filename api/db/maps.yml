@@ -1,0 +1,33 @@
+- name: 'Bacich Elementary School'
+  url: 'http://localhost:3000/overlays/bacich_elementary_school.jpg'
+  level: G
+  crs: UTM
+  zone: 10N
+  scale_x: 0.153
+  scale_y: -0.153
+  skew_x: 0.0
+  skew_y: 0.0
+  top_left_x: 540405.2
+  top_left_y: 4200669.8
+- name: 'Kent Middle School'
+  url: 'http://localhost:3000/overlays/kent_middle_school.jpg'
+  level: G
+  crs: UTM
+  zone: 10N
+  scale_x: 0.15
+  scale_y: -0.15
+  skew_x: 0.0
+  skew_y: 0.0
+  top_left_x: 539620.9
+  top_left_y: 4200786.2
+- name: 'Kentfield District Office'
+  url: 'http://localhost:3000/overlays/kentfield_district_office.jpg'
+  level: G
+  crs: UTM
+  zone: 10N
+  scale_x: 0.12
+  scale_y: -0.12
+  skew_x: 0.0
+  skew_y: 0.0
+  top_left_x: 539620.9
+  top_left_y: 4200786.2

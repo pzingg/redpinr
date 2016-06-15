@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20160611180720) do
     t.float    "skew_y",     limit: 24
     t.float    "skew_x",     limit: 24
     t.float    "scale_y",    limit: 24
-    t.float    "top_left_x", limit: 24
-    t.float    "top_left_y", limit: 24
+    t.decimal  "top_left_x",            precision: 64, scale: 12
+    t.decimal  "top_left_y",            precision: 64, scale: 12
   end
 
   create_table "measurements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -25,6 +25,17 @@ class Map < ApplicationRecord
     image_size ? image_size[1] : nil
   end
   
+  def valid_overlay?
+    !self.url.nil? && self.url =~ /^http/ && self.zone && self.scale_x && 
+      self.top_left_x && self.top_left_y
+  end
+        
+  def overlay_string
+    sprintf("\"%s\",\"%s\",%d,%d,%.2f,\"%s\",%.2f,%.2f", 
+      self.url, self.level, self.image_w, self.image_h, self.scale_x, 
+      self.zone, self.top_left_x, self.top_left_y)
+  end
+  
   # Extract uploaded temp files if they exist
   def handle_file_uploads(params) 
 
